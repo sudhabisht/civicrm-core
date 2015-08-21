@@ -416,7 +416,7 @@ AND    TABLE_NAME LIKE 'log_civicrm_%'
 
     if (!isset($columnsOf[$table]) || $force) {
       $errorScope = CRM_Core_TemporaryErrorScope::ignoreException();
-      $dao = CRM_Core_DAO::executeQuery("SHOW COLUMNS FROM $from");
+      $dao = CRM_Core_DAO::executeQuery("SHOW COLUMNS FROM $from", CRM_Core_DAO::$_nullArray, TRUE, NULL, FALSE, FALSE);
       if (is_a($dao, 'DB_Error')) {
         return array();
       }
